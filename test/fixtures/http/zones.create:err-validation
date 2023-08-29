@@ -1,0 +1,13 @@
+HTTP/1.0 400 Bad Request
+Cache-Control: no-cache, no-store, no-transform, must-revalidate, private, max-age=0
+Content-Length: 102
+Content-Type: application/json; charset=utf-8
+Date: Tue, 05 Sep 2023 14:45:32 GMT
+Expires: Thu, 01 Jan 1970 02:00:00 EET
+Pragma: no-cache
+X-Accel-Expires: 0
+X-Ratelimit-Limit: 1200
+X-Ratelimit-Remaining: 1197
+X-Ratelimit-Reset: 1693925400
+
+[{"fieldNames":["name"],"classification":"ValidationError","message":"invalid name (min=4, max=255)"}]

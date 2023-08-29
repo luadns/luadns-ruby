@@ -1,0 +1,14 @@
+---
+
+require:
+  - standard
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-minitest
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.0

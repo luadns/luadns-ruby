@@ -1,0 +1,10 @@
+HTTP/1.1 403 Forbidden
+Cache-Control: no-cache, no-store, no-transform, must-revalidate, private, max-age=0
+Content-Length: 105
+Content-Type: application/json; charset=utf-8
+Date: Wed, 27 Sep 2023 04:46:51 GMT
+Expires: Thu, 01 Jan 1970 02:00:00 EET
+Pragma: no-cache
+X-Accel-Expires: 0
+
+{"status":"Forbidden","request_id":"apollo.local/XC6HOv2rGV-000007","message":"Invalid 'Accept' header"}
