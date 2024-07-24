@@ -25,12 +25,21 @@ module Luadns
   class ValidationError < LuadnsError
     def initialize(response)
       body = JSON.parse(response.body)
-      message = body.map do |t|
-        fields = t["fieldNames"]
-        message = t["message"]
-        "#{fields.join(", ")}: #{message}"
-      end.join("; ")
-      super(response, message)
+
+      messages = body.map do |t|
+        classification, field_names, message = t.values_at("classification", "fieldNames", "message")
+
+        case classification
+        when "RequiredError"
+          field_names.map { |t| "#{t} is required" }
+        when "ValidationError"
+          field_names.map { |t| "#{t} #{message}" }
+        else
+          message
+        end
+      end
+
+      super(response, messages.join("; "))
     end
   end
 

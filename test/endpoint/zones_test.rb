@@ -48,6 +48,16 @@ class Luadns::Endpoint::ZonesTest < Luadns::Test
 
     assert_equal 400, error.http_status
     assert_match(/invalid name/, error.message)
+
+    stub_request(:post, "https://api.luadns.com/v1/zones")
+      .to_return(read_http_fixture("test/fixtures/http/zones.create:err-deserialization"))
+
+    error = assert_raises Luadns::ValidationError do
+      zone = @client.zones.create_zone({name: 1234})
+    end
+
+    assert_equal 400, error.http_status
+    assert_match(/cannot unmarshal number into Go struct/, error.message)
   end
 
   it "should get zone" do
